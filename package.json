@@ -1,0 +1,33 @@
+{
+  "name": "hermione-chunks",
+  "version": "0.0.0",
+  "description": "Hermione plugin to run tests in chunks",
+  "scripts": {
+    "unit": "mocha test",
+    "lint": "eslint .",
+    "test": "npm run lint && npm run unit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/gemini-testing/hermione-chunks.git"
+  },
+  "keywords": [
+    "hermione",
+    "plugin",
+    "chunks"
+  ],
+  "author": "Evgeniy Gavryushin <job.egavr@yandex.ru>",
+  "dependencies": {
+    "lodash": "4.17.11"
+  },
+  "devDependencies": {
+    "chai": "4.2.0",
+    "eslint": "5.13.0",
+    "eslint-config-gemini-testing": "2.8.0",
+    "mocha": "5.2.0",
+    "sinon": "7.2.3"
+  },
+  "engine": {
+    "node": ">=8"
+  }
+}
