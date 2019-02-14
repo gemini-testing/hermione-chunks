@@ -17,7 +17,9 @@
     "chunks"
   ],
   "author": "Evgeniy Gavryushin <job.egavr@yandex.ru>",
+  "license": "MIT",
   "dependencies": {
+    "gemini-configparser": "1.0.0",
     "lodash": "4.17.11"
   },
   "devDependencies": {
