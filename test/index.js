@@ -29,12 +29,21 @@ describe('hermione-chunks', () => {
 
         hermione = stubHermione();
         sandbox.spy(hermione, 'on');
+        sandbox.stub(hermione, 'isWorker').returns(false);
     });
 
     afterEach(() => sandbox.restore());
 
     it('should do nothing if plugin is disabled', () => {
         initPlugin({enabled: false});
+
+        assert.notCalled(hermione.on);
+    });
+
+    it('should do nothing in workers', () => {
+        hermione.isWorker.returns(true);
+
+        initPlugin({enabled: true});
 
         assert.notCalled(hermione.on);
     });
