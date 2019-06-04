@@ -12,6 +12,7 @@ exports.stubTest = (opts = {}) => {
 
 exports.stubHermione = () => {
     const hermione = new EventEmitter();
+    hermione.isWorker = () => {};
     hermione.events = {
         AFTER_TESTS_READ: 'fooBarAfterTestsRead'
     };

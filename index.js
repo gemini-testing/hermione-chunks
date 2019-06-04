@@ -10,6 +10,10 @@ module.exports = (hermione, options) => {
         return;
     }
 
+    if (hermione.isWorker()) {
+        return;
+    }
+
     hermione.on(hermione.events.AFTER_TESTS_READ, (testCollection) => {
         const chunks = Chunks.create(options);
 
