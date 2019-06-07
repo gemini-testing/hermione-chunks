@@ -54,7 +54,7 @@ describe('lib/chunks', () => {
         assert.deepEqual(chunks.get(), [[test3, test4], [test2, test1]]);
     });
 
-    it.only('should not be affected by the order of the tests', () => {
+    it('should not be affected by the order of the tests', () => {
         const chunks1 = Chunks.create({count: 2});
         const chunks2 = Chunks.create({count: 2});
 
