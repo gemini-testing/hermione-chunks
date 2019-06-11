@@ -12,8 +12,7 @@ describe('hermione-chunks', () => {
     const initPlugin = (config = {}) => plugin(hermione, config);
 
     const stubCollection = (tests = [{}]) => ({
-        eachTest: (cb) => tests.forEach((test) => cb(test)),
-        disableTest: sandbox.stub()
+        eachTest: (cb) => tests.forEach((test) => cb(test))
     });
 
     const emitAfterTestsRead = (collection, config) => {
@@ -75,9 +74,8 @@ describe('hermione-chunks', () => {
 
             emitAfterTestsRead(collection, {run: 2});
 
-            assert.calledTwice(collection.disableTest);
-            assert.calledWith(collection.disableTest, test1.fullTitle(), test1.browserId);
-            assert.calledWith(collection.disableTest, test2.fullTitle(), test2.browserId);
+            assert.propertyVal(test1, 'disabled', true);
+            assert.propertyVal(test2, 'disabled', true);
         });
     });
 });

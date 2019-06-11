@@ -21,9 +21,8 @@ module.exports = (hermione, options) => {
 
         chunks.get().forEach((chunk, index) => {
             if (++index !== options.run) {
-                chunk.forEach((test) => testCollection.disableTest(test.fullTitle(), test.browserId));
+                chunk.forEach((test) => test.disabled = true);
             }
         });
     });
 };
-
