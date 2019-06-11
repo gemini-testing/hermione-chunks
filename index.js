@@ -20,7 +20,7 @@ module.exports = (hermione, options) => {
         testCollection.eachTest((test) => chunks.addTest(test));
 
         chunks.get().forEach((chunk, index) => {
-            if (++index !== options.run) {
+            if (index + 1 !== options.run) {
                 chunk.forEach((test) => test.disabled = true);
             }
         });
