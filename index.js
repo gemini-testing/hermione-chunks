@@ -14,6 +14,10 @@ module.exports = (hermione, options) => {
         return;
     }
 
+    hermione.config.getBrowserIds().forEach((bro) => {
+        hermione.config.forBrowser(bro).strictTestsOrder = true;
+    });
+
     hermione.on(hermione.events.AFTER_TESTS_READ, (testCollection) => {
         const chunks = Chunks.create(options);
 
