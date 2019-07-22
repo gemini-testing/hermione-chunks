@@ -1,6 +1,6 @@
 {
   "name": "hermione-chunks",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "Hermione plugin to run tests in chunks",
   "scripts": {
     "unit": "mocha test",
