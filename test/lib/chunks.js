@@ -6,8 +6,8 @@ const {stubTest} = require('../utils');
 describe('lib/chunks', () => {
     it('should distribute even number of tests on chunks', () => {
         const chunks = Chunks.create({count: 2});
-        const test1 = stubTest({title: 'foo'});
-        const test2 = stubTest({title: 'bar'});
+        const test1 = stubTest({id: 'foo'});
+        const test2 = stubTest({id: 'bar'});
 
         chunks.addTest(test1);
         chunks.addTest(test2);
@@ -17,9 +17,9 @@ describe('lib/chunks', () => {
 
     it('should distribute odd number of tests on chunks', () => {
         const chunks = Chunks.create({count: 2});
-        const test1 = stubTest({title: 'foo'});
-        const test2 = stubTest({title: 'bar'});
-        const test3 = stubTest({title: 'baz'});
+        const test1 = stubTest({id: 'foo'});
+        const test2 = stubTest({id: 'bar'});
+        const test3 = stubTest({id: 'baz'});
 
         chunks.addTest(test1);
         chunks.addTest(test2);
@@ -28,10 +28,10 @@ describe('lib/chunks', () => {
         assert.deepEqual(chunks.get(), [[test2, test1], [test3]]);
     });
 
-    it('should not distribute tests with the same full title on different chunks', () => {
+    it('should not distribute tests with the same id on different chunks', () => {
         const chunks = Chunks.create({count: 2});
-        const test1 = stubTest({title: 'foo', browserId: 'bro1'});
-        const test2 = stubTest({title: 'foo', browserId: 'bro2'});
+        const test1 = stubTest({id: 'foo'});
+        const test2 = stubTest({id: 'foo'});
 
         chunks.addTest(test1);
         chunks.addTest(test2);
@@ -41,10 +41,10 @@ describe('lib/chunks', () => {
 
     it('should evenly distribute tests on chunks', () => {
         const chunks = Chunks.create({count: 2});
-        const test1 = stubTest({title: 'foo', browserId: 'bro1'});
-        const test2 = stubTest({title: 'bar', browserId: 'bro2'});
-        const test3 = stubTest({title: 'baz', browserId: 'bro1'});
-        const test4 = stubTest({title: 'baz', browserId: 'bro2'});
+        const test1 = stubTest({id: 'foo'});
+        const test2 = stubTest({id: 'bar'});
+        const test3 = stubTest({id: 'baz'});
+        const test4 = stubTest({id: 'baz'});
 
         chunks.addTest(test1);
         chunks.addTest(test2);
@@ -58,10 +58,10 @@ describe('lib/chunks', () => {
         const chunks1 = Chunks.create({count: 2});
         const chunks2 = Chunks.create({count: 2});
 
-        const test1 = stubTest({title: 'foo', browserId: 'bro1'});
-        const test2 = stubTest({title: 'bar', browserId: 'bro2'});
-        const test3 = stubTest({title: 'baz', browserId: 'bro1'});
-        const test4 = stubTest({title: 'qux', browserId: 'bro2'});
+        const test1 = stubTest({id: 'foo'});
+        const test2 = stubTest({id: 'bar'});
+        const test3 = stubTest({id: 'baz'});
+        const test4 = stubTest({id: 'qux'});
 
         chunks1.addTest(test1);
         chunks1.addTest(test2);
