@@ -5,8 +5,7 @@ const _ = require('lodash');
 
 exports.stubTest = (opts = {}) => {
     return _.defaults(opts, {
-        fullTitle: () => opts.title || 'title',
-        browserId: 'bro'
+        id: 'default-id'
     });
 };
 
