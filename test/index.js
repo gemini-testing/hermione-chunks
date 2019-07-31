@@ -28,6 +28,7 @@ describe('hermione-chunks', () => {
 
         hermione = stubHermione();
         sandbox.spy(hermione, 'on');
+        sandbox.stub(hermione, 'isWorker').returns(false);
     });
 
     afterEach(() => sandbox.restore());
@@ -44,21 +45,6 @@ describe('hermione-chunks', () => {
         initPlugin({enabled: true});
 
         assert.notCalled(hermione.on);
-    });
-
-    it('should sed strictTestsOrder option for all browsers', () => {
-        const config = {
-            foo: {},
-            bar: {}
-        };
-
-        hermione.config.forBrowser.callsFake((bro) => config[bro]);
-        hermione.config.getBrowserIds.callsFake(() => Object.keys(config));
-
-        initPlugin();
-
-        assert.isTrue(config.foo.strictTestsOrder);
-        assert.isTrue(config.bar.strictTestsOrder);
     });
 
     describe('on "AFTER_TESTS_READ"', () => {

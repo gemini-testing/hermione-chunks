@@ -11,14 +11,10 @@ exports.stubTest = (opts = {}) => {
 };
 
 exports.stubHermione = () => {
-    return _.extend(new EventEmitter(), {
-        isWorker: sinon.stub().returns(false),
-        events: {
-            AFTER_TESTS_READ: 'fooBarAfterTestsRead'
-        },
-        config: {
-            getBrowserIds: sinon.stub().returns([]),
-            forBrowser: sinon.stub().callsFake(() => {})
-        }
-    });
+    const hermione = new EventEmitter();
+    hermione.isWorker = () => {};
+    hermione.events = {
+        AFTER_TESTS_READ: 'fooBarAfterTestsRead'
+    };
+    return hermione;
 };
