@@ -80,9 +80,9 @@ describe('hermione-chunks', () => {
         });
 
         it('should disable all tests except the tests of the specified chunk', () => {
-            const test1 = stubTest({title: 'test1', browserId: 'bro1'});
-            const test2 = stubTest({title: 'test2', browserId: 'bro2'});
-            const test3 = stubTest({title: 'test3', browserId: 'bro1'});
+            const test1 = stubTest({title: 'test1'});
+            const test2 = stubTest({title: 'test2'});
+            const test3 = stubTest({title: 'test3'});
             const collection = stubCollection();
             Chunks.prototype.get.returns([[test1, test2], [test3]]);
 
