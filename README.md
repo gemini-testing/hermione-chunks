@@ -1,6 +1,6 @@
 # hermione-chunks [![Build Status](https://travis-ci.org/gemini-testing/hermione-chunks.svg?branch=master)](https://travis-ci.org/gemini-testing/hermione-chunks)
 
-Plugin for [hermione]https://github.com/gemini-testing/hermione) to run separate chunks of tests.
+Plugin for [hermione](https://github.com/gemini-testing/hermione) to run separate chunks of tests.
 
 ## Install
 
