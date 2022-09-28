@@ -78,7 +78,7 @@ npx hermione --chunks-count 10 --chunks-run 1
 ```
 
 ```bash
-hermione_test_repeater_repeat=5 npx hermione
+hermione_chunks_count=10 hermione_chunks_run=1 npx hermione
 ```
 
 ## Useful links
