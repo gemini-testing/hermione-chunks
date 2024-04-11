@@ -3,18 +3,18 @@
 const config = require('./lib/config');
 const Chunks = require('./lib/chunks');
 
-module.exports = (hermione, options) => {
+module.exports = (testplane, options) => {
     options = config(options);
 
     if (!options.enabled) {
         return;
     }
 
-    if (hermione.isWorker()) {
+    if (testplane.isWorker()) {
         return;
     }
 
-    hermione.on(hermione.events.AFTER_TESTS_READ, (testCollection) => {
+    testplane.on(testplane.events.AFTER_TESTS_READ, (testCollection) => {
         const chunks = Chunks.create(options);
 
         testCollection.eachTest((test) => chunks.addTest(test));
