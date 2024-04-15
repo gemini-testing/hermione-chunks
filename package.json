@@ -1,6 +1,6 @@
 {
   "name": "@testplane/chunks",
-  "version": "0.0.1",
+  "version": "1.0.0",
   "description": "Testplane plugin to run tests in chunks",
   "scripts": {
     "unit": "mocha test",
