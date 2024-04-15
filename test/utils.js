@@ -9,11 +9,11 @@ exports.stubTest = (opts = {}) => {
     });
 };
 
-exports.stubHermione = () => {
-    const hermione = new EventEmitter();
-    hermione.isWorker = () => {};
-    hermione.events = {
+exports.stubTestplane = () => {
+    const testplane = new EventEmitter();
+    testplane.isWorker = () => {};
+    testplane.events = {
         AFTER_TESTS_READ: 'fooBarAfterTestsRead'
     };
-    return hermione;
+    return testplane;
 };

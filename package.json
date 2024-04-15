@@ -1,7 +1,7 @@
 {
-  "name": "hermione-chunks",
-  "version": "0.2.1",
-  "description": "Hermione plugin to run tests in chunks",
+  "name": "@testplane/chunks",
+  "version": "0.0.1",
+  "description": "Testplane plugin to run tests in chunks",
   "scripts": {
     "unit": "mocha test",
     "lint": "eslint .",
@@ -9,9 +9,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "git://github.com/gemini-testing/hermione-chunks.git"
+    "url": "git://github.com/gemini-testing/testplane-chunks.git"
   },
   "keywords": [
+    "testplane",
     "hermione",
     "plugin",
     "chunks"

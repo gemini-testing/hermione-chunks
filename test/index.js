@@ -3,13 +3,13 @@
 const plugin = require('../');
 const Chunks = require('../lib/chunks');
 const defaults = require('../lib/config/defaults');
-const {stubHermione, stubTest} = require('./utils');
+const {stubTestplane, stubTest} = require('./utils');
 
-describe('hermione-chunks', () => {
+describe('testplane-chunks', () => {
     const sandbox = sinon.sandbox.create();
-    let hermione;
+    let testplane;
 
-    const initPlugin = (config = {}) => plugin(hermione, config);
+    const initPlugin = (config = {}) => plugin(testplane, config);
 
     const stubCollection = (tests = [{}]) => ({
         eachTest: (cb) => tests.forEach((test) => cb(test))
@@ -18,7 +18,7 @@ describe('hermione-chunks', () => {
     const emitAfterTestsRead = (collection, config) => {
         initPlugin(config);
 
-        hermione.emit(hermione.events.AFTER_TESTS_READ, collection);
+        testplane.emit(testplane.events.AFTER_TESTS_READ, collection);
     };
 
     beforeEach(() => {
@@ -26,9 +26,9 @@ describe('hermione-chunks', () => {
         sandbox.stub(Chunks.prototype, 'addTest');
         sandbox.stub(Chunks.prototype, 'get').returns([]);
 
-        hermione = stubHermione();
-        sandbox.spy(hermione, 'on');
-        sandbox.stub(hermione, 'isWorker').returns(false);
+        testplane = stubTestplane();
+        sandbox.spy(testplane, 'on');
+        sandbox.stub(testplane, 'isWorker').returns(false);
     });
 
     afterEach(() => sandbox.restore());
@@ -36,15 +36,15 @@ describe('hermione-chunks', () => {
     it('should do nothing if plugin is disabled', () => {
         initPlugin({enabled: false});
 
-        assert.notCalled(hermione.on);
+        assert.notCalled(testplane.on);
     });
 
     it('should do nothing in workers', () => {
-        hermione.isWorker.returns(true);
+        testplane.isWorker.returns(true);
 
         initPlugin({enabled: true});
 
-        assert.notCalled(hermione.on);
+        assert.notCalled(testplane.on);
     });
 
     describe('on "AFTER_TESTS_READ"', () => {
